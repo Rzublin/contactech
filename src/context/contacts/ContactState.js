@@ -5,7 +5,11 @@ import * as contactTypes from "../types";
 
 const ContactState = (props) => {
   const initialState = {
-    contacts: [],
+    contacts: [
+      { firstname: "Hans", lastname: "Musterman", email: "hans@muster.de" },
+      { firstname: "Hanna", lastname: "Musterman", email: "hanna@muster.de" },
+      { firstname: "Hagrid", lastname: "Musterman", email: "hagrid@muster.de" },
+    ],
     contact: {},
   };
 
