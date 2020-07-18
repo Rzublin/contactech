@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import StyledContactList from "./StyledContactList";
 import Contact from "../Contact/Contact";
+import ContactContext from "../../context/contacts/contactContext";
 
 const ContactList = () => {
+  const {
+    state: { contacts },
+  } = useContext(ContactContext);
   return (
     <div>
-      <h1>ContactList</h1>
+      {contacts.length > 0 &&
+        contacts.map((el) => (
+          <Contact key={el.firstname + el.lastname} contact={el} />
+        ))}
     </div>
   );
 };
