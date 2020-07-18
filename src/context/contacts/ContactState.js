@@ -1,15 +1,22 @@
 import React, { useReducer, useEffect } from "react";
 import ContactContext from "./contactContext";
-import ContactbReducer from "./contactReducer";
+import ContactReducer from "./contactReducer";
 import * as contactTypes from "../types";
 
 const ContactState = (props) => {
   const initialState = {
-    contact: [],
-    contacts: {},
+    contacts: [],
+    contact: {},
   };
 
-  const [state, dispatch] = useReducer(ContactbReducer, initialState);
+  const [state, dispatch] = useReducer(ContactReducer, [], () => {
+    const localData = localStorage.getItem("contactListStorage");
+    return localData ? JSON.parse(localData) : initialState;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("contactListStorage", JSON.stringify(state));
+  }, [state, state.contacts]);
 
   const addContact = () => {
     dispatch({
@@ -39,21 +46,10 @@ const ContactState = (props) => {
     });
   };
 
-  useEffect(() => {
-    const fetchData = () => {
-      dispatch({
-        type: contactTypes.GET_CONTACTS,
-        payload: [],
-      });
-    };
-    fetchData();
-  }, []);
-
   return (
     <ContactContext.Provider
       value={{
-        contacts: state.contacts,
-        contact: state.contact,
+        state,
         deleteContact,
         getContacts,
         updateContact,
