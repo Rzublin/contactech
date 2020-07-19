@@ -8,12 +8,12 @@ import ContactAdd from "./components/ContactAdd/ContactAdd";
 function App() {
   return (
     <ContactState>
-      <div className="App">
-        <Header />
+      <Header />
+      <div className="main container">
         <ContactList />
         <ContactAdd />
-        <Footer />
       </div>
+      <Footer />
     </ContactState>
   );
 }
