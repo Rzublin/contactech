@@ -3,9 +3,10 @@ import StyledHeader from "./StyledHeader";
 
 const Header = () => {
   return (
-    <div>
-      <h1>Header</h1>
-    </div>
+    <StyledHeader>
+      <img src="/favicon-32x32.png" alt="Logo" className="logo" />
+      <h1>CONTACTECH</h1>
+    </StyledHeader>
   );
 };
 
