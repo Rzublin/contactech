@@ -4,15 +4,29 @@ import ContactReducer from "./contactReducer";
 import * as contactTypes from "../types";
 
 const ContactState = (props) => {
-  const initialState = {
-    contacts: [
-      { firstname: "Hans", lastname: "Musterman", email: "hans@muster.de" },
-      { firstname: "Hanna", lastname: "Musterman", email: "hanna@muster.de" },
-      { firstname: "Hagrid", lastname: "Musterman", email: "hagrid@muster.de" },
-    ],
-    contact: {},
-  };
-
+  const initialState = [
+    {
+      id: 1,
+      firstname: "Hans",
+      lastname: "Musterman",
+      email: "hans@muster.de",
+      avatar: `https://api.adorable.io/avatars/50/hansmusterman@adorable`,
+    },
+    {
+      id: 2,
+      firstname: "Hanna",
+      lastname: "Musterman",
+      email: "hanna@muster.de",
+      avatar: `https://api.adorable.io/avatars/50/hannamusterman@adorable`,
+    },
+    {
+      id: 3,
+      firstname: "Hagrid",
+      lastname: "Musterman",
+      email: "hagrid@muster.de",
+      avatar: `https://api.adorable.io/avatars/50/hagridmusterman@adorable`,
+    },
+  ];
   const [state, dispatch] = useReducer(ContactReducer, [], () => {
     const localData = localStorage.getItem("contactListStorage");
     return localData ? JSON.parse(localData) : initialState;
@@ -20,12 +34,12 @@ const ContactState = (props) => {
 
   useEffect(() => {
     localStorage.setItem("contactListStorage", JSON.stringify(state));
-  }, [state, state.contacts]);
+  }, [state]);
 
-  const addContact = () => {
+  const addContact = (firstname, lastname, email) => {
     dispatch({
       type: contactTypes.ADD_CONTACT,
-      payload: [],
+      payload: { firstname, lastname, email },
     });
   };
 
@@ -36,10 +50,10 @@ const ContactState = (props) => {
     });
   };
 
-  const deleteContact = () => {
+  const deleteContact = (id) => {
     dispatch({
       type: contactTypes.DELETE_CONTACT,
-      payload: [],
+      payload: { id },
     });
   };
 
