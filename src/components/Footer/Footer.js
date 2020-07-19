@@ -3,9 +3,9 @@ import StyledFooter from "./StyledFooter";
 
 const Footer = () => {
   return (
-    <div>
-      <h1>Footer</h1>
-    </div>
+    <StyledFooter>
+      <div>© 2020 Raphael Züblin. All rights reserved.</div>
+    </StyledFooter>
   );
 };
 
