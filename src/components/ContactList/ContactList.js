@@ -4,15 +4,11 @@ import Contact from "../Contact/Contact";
 import ContactContext from "../../context/contacts/contactContext";
 
 const ContactList = () => {
-  const {
-    state: { contacts },
-  } = useContext(ContactContext);
+  const { state } = useContext(ContactContext);
   return (
     <div>
-      {contacts.length > 0 &&
-        contacts.map((el) => (
-          <Contact key={el.firstname + el.lastname} contact={el} />
-        ))}
+      {state.length > 0 &&
+        state.map((el) => <Contact key={el.id} contact={el} />)}
     </div>
   );
 };
