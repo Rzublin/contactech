@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
   .container{
     max-width: 900px;
     margin: auto;
+    padding: 10px;
   }
   .main{
     flex: 1 0 auto;
