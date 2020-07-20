@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/contactech/static/js/main.4cb70363.chunk.js",
+    "main.js.map": "/contactech/static/js/main.4cb70363.chunk.js.map",
+    "runtime-main.js": "/contactech/static/js/runtime-main.962ae39a.js",
+    "runtime-main.js.map": "/contactech/static/js/runtime-main.962ae39a.js.map",
+    "static/js/2.aa988a5c.chunk.js": "/contactech/static/js/2.aa988a5c.chunk.js",
+    "static/js/2.aa988a5c.chunk.js.map": "/contactech/static/js/2.aa988a5c.chunk.js.map",
+    "index.html": "/contactech/index.html",
+    "precache-manifest.d7110c65e7bf9c26c6cca2caaa2d60d3.js": "/contactech/precache-manifest.d7110c65e7bf9c26c6cca2caaa2d60d3.js",
+    "service-worker.js": "/contactech/service-worker.js",
+    "static/js/2.aa988a5c.chunk.js.LICENSE.txt": "/contactech/static/js/2.aa988a5c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.962ae39a.js",
+    "static/js/2.aa988a5c.chunk.js",
+    "static/js/main.4cb70363.chunk.js"
+  ]
+}
