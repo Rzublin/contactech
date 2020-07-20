@@ -20,7 +20,19 @@ function contactReducer(state, action) {
     case contactTypes.GET_CONTACTS:
       return { ...state, contacts: action.payload };
     case contactTypes.UPDATE_CONTACT:
-      return { ...state, contacts: action.payload };
+      return state.map((el) =>
+        el.id === action.payload.id
+          ? {
+              id: el.id,
+              firstname: action.payload.firstname,
+              lastname: action.payload.lastname,
+              email: action.payload.email,
+              avatar: `https://api.adorable.io/avatars/50/${
+                action.payload.firstname + action.payload.lastname
+              }@adorable`,
+            }
+          : el
+      );
     default:
       return state;
   }
