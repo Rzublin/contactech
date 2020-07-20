@@ -57,10 +57,10 @@ const ContactState = (props) => {
     });
   };
 
-  const updateContact = () => {
+  const updateContact = (firstname, lastname, email, id) => {
     dispatch({
       type: contactTypes.UPDATE_CONTACT,
-      payload: [],
+      payload: { firstname, lastname, email, id },
     });
   };
 
