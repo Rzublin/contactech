@@ -3,7 +3,10 @@ import StyledContact from "./StyledContact";
 import PropTypes from "prop-types";
 import ContactContext from "../../context/contacts/contactContext";
 
-const Contact = ({ contact: { firstname, lastname, email, id, avatar } }) => {
+const Contact = ({
+  contact: { firstname, lastname, email, id, avatar },
+  editContact,
+}) => {
   const { deleteContact } = useContext(ContactContext);
   return (
     <StyledContact>
@@ -17,7 +20,12 @@ const Contact = ({ contact: { firstname, lastname, email, id, avatar } }) => {
         <p className="email">{`${email}`}</p>
       </div>
       <div className="actions">
-        <img className="icon" src="/edit-icon.svg" alt="Edit Icon" />
+        <img
+          className="icon"
+          src="/edit-icon.svg"
+          alt="Edit Icon"
+          onClick={() => editContact(firstname, lastname, email, id, avatar)}
+        />
         <img
           className="icon"
           src="/delete-icon.svg"
@@ -31,6 +39,7 @@ const Contact = ({ contact: { firstname, lastname, email, id, avatar } }) => {
 
 Contact.propTypes = {
   contact: PropTypes.object.isRequired,
+  editContact: PropTypes.func.isRequired,
 };
 
 export default Contact;
